@@ -1,5 +1,5 @@
 import createHttpError from"http-errors"
-import  { verify } from"../utils/token"
+import  { verify } from"../utils/token.js"
 
 export const auth = async (req, res, next) => {
   if (!req.headers["authorization"])

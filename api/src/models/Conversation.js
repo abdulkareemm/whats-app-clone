@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const {ObjectId} = mongoose.Schema.Types
+const { ObjectId } = mongoose.Types;
 const conversationSchema = new mongoose.Schema(
   {
     name: {
@@ -40,4 +40,4 @@ const ConversationModel =
   mongoose.models.ConversationModel ||
   mongoose.model("ConversationModel", conversationSchema);
 
-export default ConversationModel
+export default ConversationModel;
