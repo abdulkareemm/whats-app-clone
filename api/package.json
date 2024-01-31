@@ -1,0 +1,17 @@
+{
+  "name": "whats-app-clone",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "repository": "https://github.com/abdulkareemm/whats-app-clone.git",
+  "author": "abdulkareemm <eng.kreem.96@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon ./src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.3"
+  }
+}
