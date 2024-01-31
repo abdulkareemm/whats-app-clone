@@ -4,12 +4,13 @@ import { RootLayout } from "./components";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "./features/userSlice";
+import { Home } from "./pages";
 
 function App() {
   const  dispatch =  useDispatch()
-  useEffect(()=>{
-    dispatch(logout())
-  })
+  // useEffect(()=>{
+  //   dispatch(logout())
+  // })
   return (
     <main className="dark">
       <Routes>
@@ -19,7 +20,9 @@ function App() {
           <Route path="/sign-up" element={<SignupForm />} />
         </Route>
         {/* private routes */}
-        <Route element={<RootLayout />}></Route>
+        <Route element={<RootLayout />}>
+          <Route index element={<Home/>}/>
+        </Route>
       </Routes>
     </main>
   );
