@@ -7,11 +7,11 @@ import { logout } from "./features/userSlice";
 
 function App() {
   const  dispatch =  useDispatch()
-  // useEffect(()=>{
-  //   dispatch(logout())
-  // })
+  useEffect(()=>{
+    dispatch(logout())
+  })
   return (
-    <main className="">
+    <main className="dark">
       <Routes>
         {/* public routes */}
         <Route element={<AuthLayout />}>
