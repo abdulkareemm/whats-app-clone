@@ -9,6 +9,7 @@ import fileUpload from "express-fileupload";
 import cors from "cors";
 import createHttpError from "http-errors";
 import db from "../configs/db.js";
+import routers from "../routes/index.js"
 
 /// dotenv configuration
 dotenv.config();
@@ -57,7 +58,7 @@ app.use(
 );
 
 ///  routes
-//app.use("/api/v1", routers);
+app.use("/api/v1", routers);
 
 ///  page not fount
 app.use(async (req, res, next) => {
