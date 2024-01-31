@@ -12,6 +12,6 @@ const dbConnect = async () => {
     logger.error(err);
     process.exit(1);
   }
-};
+};  
 
 export default dbConnect;
