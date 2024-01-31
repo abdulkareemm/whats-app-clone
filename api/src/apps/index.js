@@ -8,9 +8,14 @@ import compression from "compression";
 import fileUpload from "express-fileupload";
 import cors from "cors";
 import createHttpError from "http-errors";
+import db from "../configs/db.js";
 
 /// dotenv configuration
 dotenv.config();
+
+//  connect to database
+db();
+
 /// create express app
 const app = express();
 
