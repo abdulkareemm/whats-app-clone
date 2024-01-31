@@ -1,8 +1,15 @@
 import {Routes,Route} from "react-router-dom"
 import { AuthLayout, SigninForm, SignupForm } from "./auth";
 import { RootLayout } from "./components";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "./features/userSlice";
 
 function App() {
+  const  dispatch =  useDispatch()
+  // useEffect(()=>{
+  //   dispatch(logout())
+  // })
   return (
     <main className="">
       <Routes>
