@@ -1,5 +1,6 @@
 import React from "react";
 import SidebarHeader from "./SidebarHeader";
+import Notification from "../Notifications";
 //import Notification from "./Notification";
 //import { Search } from "./search";
 
@@ -9,6 +10,7 @@ const Sidebar = () => {
       {/* header */}
       <SidebarHeader />
       {/* notifications */}
+      <Notification />
       {/* search */}
     </div>
   );
