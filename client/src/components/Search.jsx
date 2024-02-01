@@ -7,23 +7,22 @@ const Search = ({ searchLength, setSearchResults }) => {
   const [show, setShow] = useState(false);
   const { user } = useSelector((state) => state.user);
   const handleSearch = async (e) => {
-    if (e.target.value && e.key === "enter") {
+    if (e.target.value && e.key === "Enter") {
       try {
         const { data } = await axios.get(
           `${process.env.REACT_APP_API_ENDPOINT}/user?search=${e.target.value}`,
           {
             headers: {
-              Authorization: `Bearer  ${user.token}`,
+              Authorization: `Bearer ${user.token}`,
             },
           }
         );
-          setSearchResults(data);
-
+        setSearchResults(data);
       } catch (error) {
         console.log(error.response.data.error.message);
       }
-    }else{
-      setSearchResults([])
+    } else {
+      setSearchResults([]);
     }
   };
 
@@ -49,6 +48,7 @@ const Search = ({ searchLength, setSearchResults }) => {
               placeholder="Search or start a new chat"
               onFocus={() => setShow(true)}
               onBlur={() => searchLength == 0 && setShow(false)}
+              onKeyDown={(e) => handleSearch(e)}
             />
           </div>
           <button className="btn">

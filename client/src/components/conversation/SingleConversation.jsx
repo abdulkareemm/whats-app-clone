@@ -8,7 +8,6 @@ import {
 
 const SingleConversation = ({ convo, lastItem }) => {
   const { user } = useSelector((state) => state.user);
-  console.log(getRecevierImage(user._id, convo.users));
   return (
     <li className="list-none h-[72px] w-full dark:bg-dark_1 hover:dark:bg-dark_2 cursor-pointer dark:text-dark_text_1 px-[10px]">
       {/* Container */}
