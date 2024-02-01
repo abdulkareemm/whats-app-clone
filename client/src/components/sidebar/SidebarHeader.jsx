@@ -11,13 +11,18 @@ const SidebarHeader = () => {
       {/* Container */}
       <div className="w-full flex items-center justify-between ">
         {/* user image */}
-        <button className="btn">
-          <img
-            src={user.picture}
-            alt=""
-            className="w-full h-full rounded-full object-cover"
-          />
-        </button>
+        <div className="flex items-center gap-5 ">
+          <button className="btn">
+            <img
+              src={user.picture}
+              alt=""
+              className="w-full h-full rounded-full object-cover"
+            />
+          </button>
+          <h1 className="dark:text-dark_svg_1 font-bold text-black capitalize">
+            {user.name}
+          </h1>
+        </div>
         {/* user image */}
         <ul className="flex items-center gap-x-2.5">
           <li>

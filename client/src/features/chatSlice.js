@@ -50,6 +50,7 @@ export const chatSlice = createSlice({
       })
       .addCase(getConversations.fulfilled, (state, actions) => {
         state.status = "Succeed";
+        console.log(actions.payload);
         state.conversation = actions.payload;
       })
       .addCase(getConversations.rejected, (state, actions) => {
@@ -59,4 +60,4 @@ export const chatSlice = createSlice({
   },
 });
 export const { setActiveConversation } = chatSlice.actions;
-export default chatSlice.reducer;
+export default chatSlice;

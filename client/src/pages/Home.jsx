@@ -7,7 +7,6 @@ import { getConversations } from "../features/chatSlice";
 const Home = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-
   // getConversation
   useEffect(() => {
     if (user?.token) {
