@@ -1,3 +1,4 @@
 {"code":"ETIMEOUT","hostname":"_mongodb._tcp.nodetest.3xjk9.mongodb.net","level":"error","service":"user-service","syscall":"querySrv"}
 {"level":"error","service":"user-service"}
 {"level":"error","service":"user-service"}
+{"connectionGeneration":0,"level":"error","service":"user-service"}
