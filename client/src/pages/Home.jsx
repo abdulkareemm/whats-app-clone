@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
-import { Sidebar } from '../components';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from "react";
+import { Sidebar, WhatsappHome } from "../components";
+import { useDispatch, useSelector } from "react-redux";
 import { getConversations } from "../features/chatSlice";
-
 
 const Home = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
+  const { activeConversation } = useSelector((state) => state.chat);
   // getConversation
   useEffect(() => {
     if (user?.token) {
@@ -19,9 +19,11 @@ const Home = () => {
       <div className="container h-screen flex py-[19px]">
         {/* sidebar */}
         <Sidebar />
+        {/* chat */}
+        {!activeConversation ? "home" : <WhatsappHome />}
       </div>
     </div>
   );
-}
+};
 
-export default Home
+export default Home;

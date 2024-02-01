@@ -13,7 +13,11 @@ const SearchResult = ({ searchResult }) => {
       <ul>
         {searchResult &&
           searchResult.map((contact, id) => (
-            <Contact user={contact} key={contact._id} lastItem = {(id+1)===searchResult.length ? true : false} />
+            <Contact
+              user={contact}
+              key={contact._id}
+              lastItem={id + 1 === searchResult.length ? true : false}
+            />
           ))}
       </ul>
     </div>

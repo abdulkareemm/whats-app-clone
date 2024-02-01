@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowIcon, CloseIcon, NotificationIcon } from "../svg";
+import { ArrowIcon, CloseIcon, NotificationIcon } from "../../svg";
 
 const Notification = () => {
   return (

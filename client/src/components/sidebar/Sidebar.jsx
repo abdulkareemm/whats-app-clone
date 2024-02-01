@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import SidebarHeader from "./SidebarHeader";
-import Notification from "../Notifications";
-import Search from "../Search";
+import Notification from "../other/Notifications";
+import Search from "../search/Search";
 import Conversation from "../conversation/Conversation";
-import SearchResult from "../SearchResult";
+import SearchResult from "../search/SearchResult";
 
 const Sidebar = () => {
   const [searchResults, setSearchResults] = useState([]);
