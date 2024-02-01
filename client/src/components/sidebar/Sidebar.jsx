@@ -1,8 +1,7 @@
 import React from "react";
 import SidebarHeader from "./SidebarHeader";
 import Notification from "../Notifications";
-//import Notification from "./Notification";
-//import { Search } from "./search";
+import Search from "../Search";
 
 const Sidebar = () => {
   return (
@@ -12,6 +11,7 @@ const Sidebar = () => {
       {/* notifications */}
       <Notification />
       {/* search */}
+      <Search searchLength="0" />
     </div>
   );
 };
