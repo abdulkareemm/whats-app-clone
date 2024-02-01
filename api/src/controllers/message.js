@@ -1,4 +1,4 @@
-import { createMessage, populatedMessage, updateLatestMessage } from "../services/message.service.js";
+import { createMessage, getConvoMessages, populatedMessage, updateLatestMessage } from "../services/message.service.js";
 
 
 
@@ -25,5 +25,18 @@ export const sendMessage = async (req, res, next) => {
   } catch (error) {
     console.log(error)
     next(err);
+  }
+};
+export const getMessage = async (req, res, next) => {
+  try {
+    const { convo_id } = req.params;
+    if (!convo_id) {
+      logger.error("Please add a conversation id in params.");
+      return res.sendStatus(400);
+    }
+    const messages = await getConvoMessages(convo_id);
+    res.json(messages);
+  } catch (error) {
+    next(error);
   }
 };
