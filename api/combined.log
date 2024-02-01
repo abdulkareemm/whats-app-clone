@@ -598,3 +598,39 @@
 {"level":"info","message":"connect to database ...","service":"user-service"}
 {"level":"info","message":"server is listening on port 8800","service":"user-service"}
 {"level":"info","message":"Mongo db nodetest-shard-00-00.3xjk9.mongodb.net","service":"user-service"}
+{"level":"info","message":"connect to database ...","service":"user-service"}
+{"level":"info","message":"server is listening on port 8800","service":"user-service"}
+{"level":"info","message":"Mongo db nodetest-shard-00-01.3xjk9.mongodb.net","service":"user-service"}
+{"level":"info","message":"connect to database ...","service":"user-service"}
+{"level":"info","message":"server is listening on port 8800","service":"user-service"}
+{"level":"info","message":"connect to database ...","service":"user-service"}
+{"level":"info","message":"server is listening on port 8800","service":"user-service"}
+{"level":"info","message":"Mongo db nodetest-shard-00-00.3xjk9.mongodb.net","service":"user-service"}
+{"level":"info","message":"connect to database ...","service":"user-service"}
+{"level":"info","message":"server is listening on port 8800","service":"user-service"}
+{"level":"info","message":"connect to database ...","service":"user-service"}
+{"level":"info","message":"server is listening on port 8800","service":"user-service"}
+{"level":"info","message":"Mongo db nodetest-shard-00-02.3xjk9.mongodb.net","service":"user-service"}
+{"level":"info","message":"connect to database ...","service":"user-service"}
+{"level":"info","message":"server is listening on port 8800","service":"user-service"}
+{"level":"info","message":"Mongo db nodetest-shard-00-00.3xjk9.mongodb.net","service":"user-service"}
+{"level":"info","message":"connect to database ...","service":"user-service"}
+{"level":"info","message":"server is listening on port 8800","service":"user-service"}
+{"level":"info","message":"Mongo db nodetest-shard-00-01.3xjk9.mongodb.net","service":"user-service"}
+{"level":"info","message":"connect to database ...","service":"user-service"}
+{"level":"info","message":"server is listening on port 8800","service":"user-service"}
+{"level":"info","message":"connect to database ...","service":"user-service"}
+{"level":"info","message":"server is listening on port 8800","service":"user-service"}
+{"level":"info","message":"Mongo db nodetest-shard-00-00.3xjk9.mongodb.net","service":"user-service"}
+{"level":"info","message":"connect to database ...","service":"user-service"}
+{"level":"info","message":"server is listening on port 8800","service":"user-service"}
+{"level":"info","message":"Mongo db nodetest-shard-00-01.3xjk9.mongodb.net","service":"user-service"}
+{"level":"info","message":"connect to database ...","service":"user-service"}
+{"level":"info","message":"server is listening on port 8800","service":"user-service"}
+{"level":"info","message":"Mongo db nodetest-shard-00-02.3xjk9.mongodb.net","service":"user-service"}
+{"level":"info","message":"connect to database ...","service":"user-service"}
+{"level":"info","message":"server is listening on port 8800","service":"user-service"}
+{"level":"info","message":"Mongo db nodetest-shard-00-01.3xjk9.mongodb.net","service":"user-service"}
+{"level":"info","message":"connect to database ...","service":"user-service"}
+{"level":"info","message":"server is listening on port 8800","service":"user-service"}
+{"level":"info","message":"Mongo db nodetest-shard-00-00.3xjk9.mongodb.net","service":"user-service"}
