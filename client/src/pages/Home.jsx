@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Sidebar, WhatsappHome } from "../components";
+import { Chat, Sidebar, WhatsappHome } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { getConversations } from "../features/chatSlice";
 
@@ -21,7 +21,7 @@ const Home = () => {
         {/* sidebar */}
         <Sidebar />
         {/* chat */}
-        {Object.keys(activeConversation).length!==0 ? "home" : <WhatsappHome />}
+        {Object.keys(activeConversation).length!==0 ? <Chat/> : <WhatsappHome />}
       </div>
     </div>
   );
