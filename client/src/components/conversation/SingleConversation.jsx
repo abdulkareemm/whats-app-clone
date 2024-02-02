@@ -1,15 +1,25 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   dateHandler,
   getRecevierImage,
   getRecevierName,
+  getRecevierId,
 } from "../../utils/help";
+import { open_create_conversation } from "../../features/chatSlice";
 
 const SingleConversation = ({ convo, lastItem }) => {
   const { user } = useSelector((state) => state.user);
+  const values = {
+    receiver_id: getRecevierId(user._id, convo.users),
+    token:user.token,
+  };
+  const dispatch = useDispatch();
   return (
-    <li className="list-none h-[72px] w-full dark:bg-dark_1 hover:dark:bg-dark_2 cursor-pointer dark:text-dark_text_1 px-[10px]">
+    <li
+      className="list-none h-[72px] w-full dark:bg-dark_1 hover:dark:bg-dark_2 cursor-pointer dark:text-dark_text_1 px-[10px]"
+      onClick={() => dispatch(open_create_conversation(values))}
+    >
       {/* Container */}
       <div className="relative w-full flex items-center justify-between py-[10px]">
         {/* Left */}

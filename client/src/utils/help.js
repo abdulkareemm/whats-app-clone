@@ -9,6 +9,11 @@ export const getRecevierName = (user_Id, convo_user) => {
     ? convo_user[1].name
     : convo_user[0].name;
 };
+export const getRecevierId = (user_Id, convo_user) => {
+  return convo_user[0]._id === user_Id
+    ? convo_user[1]._id
+    : convo_user[0]._id;
+};
 export const dateHandler = (date) => {
   let now = moment();
   let dateMoment = moment(date);

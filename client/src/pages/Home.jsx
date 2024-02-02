@@ -7,6 +7,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { activeConversation } = useSelector((state) => state.chat);
+  console.log(activeConversation)
   // getConversation
   useEffect(() => {
     if (user?.token) {
@@ -20,7 +21,7 @@ const Home = () => {
         {/* sidebar */}
         <Sidebar />
         {/* chat */}
-        {!activeConversation ? "home" : <WhatsappHome />}
+        {Object.keys(activeConversation).length!==0 ? "home" : <WhatsappHome />}
       </div>
     </div>
   );

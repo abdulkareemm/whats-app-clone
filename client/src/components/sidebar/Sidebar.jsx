@@ -20,7 +20,7 @@ const Sidebar = () => {
       />
       {searchResults.length > 0 ? (
         <>
-          <SearchResult searchResult={searchResults} />
+          <SearchResult searchResult={searchResults} setSearchResults={setSearchResults}/>
         </>
       ) : (
         <>
