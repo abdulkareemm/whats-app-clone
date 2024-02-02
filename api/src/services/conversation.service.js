@@ -5,10 +5,8 @@ export const doesConversationExists = async (sender_id, receiver_id) => {
   let convos = await ConversationModel.find({
     isGroup: false,
     $and: [
-      {
-        users: { $elemMatch: { $eq: sender_id } },
-        users: { $elemMatch: { $eq: receiver_id } },
-      },
+      { users: { $elemMatch: { $eq: sender_id } } },
+      { users: { $elemMatch: { $eq: receiver_id } } },
     ],
   })
     .populate("users", "-password")
@@ -29,7 +27,11 @@ export const createChat = async (data) => {
   }
   return newConvo;
 };
-export const populatedConversation = async (id, fieldToPopulate, fieldsToRemove) => {
+export const populatedConversation = async (
+  id,
+  fieldToPopulate,
+  fieldsToRemove
+) => {
   const populatedConvo = await ConversationModel.findById(id).populate(
     fieldToPopulate,
     fieldsToRemove
