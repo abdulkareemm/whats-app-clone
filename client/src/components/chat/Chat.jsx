@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getConversationMessage } from "../../features/chatSlice";
 
 const Chat = () => {
-  const { activeConversation, messages } = useSelector((state) => state.chat);
+  const { activeConversation } = useSelector((state) => state.chat);
   const { user } = useSelector((state) => state.user);
   const values = {
     convo_id: activeConversation._id,
