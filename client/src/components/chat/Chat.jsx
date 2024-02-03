@@ -3,6 +3,7 @@ import Header from "./Header";
 import Message from "./messages/Messages";
 import { useDispatch, useSelector } from "react-redux";
 import { getConversationMessage } from "../../features/chatSlice";
+import { ChatActions } from "./actions";
 
 const Chat = () => {
   const { activeConversation } = useSelector((state) => state.chat);
@@ -25,6 +26,8 @@ const Chat = () => {
         <Header />
         {/* Messages */}
         <Message />
+        {/**Chat actions */}
+        <ChatActions/>
       </div>
     </div>
   );
