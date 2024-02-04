@@ -6,7 +6,7 @@ import Conversation from "../conversation/Conversation";
 import SearchResult from "../search/SearchResult";
 
 const Sidebar = () => {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState("");
   return (
     <div className="flex0030 max-w-[30%] h-full select-none">
       {/* header */}

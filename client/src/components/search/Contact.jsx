@@ -13,7 +13,7 @@ const Contact = ({ contact, lastItem, setSearchResults }) => {
     <li
       onClick={() => {
         dispatch(open_create_conversation(values));
-        setSearchResults([]);
+        setSearchResults([])
       }}
       className="list-none h[72px] hover:dark:bg-dark_bg_2 cursor-pointer dark:text-dark_text_1 px-[10px]   "
     >

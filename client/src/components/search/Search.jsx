@@ -18,6 +18,7 @@ const Search = ({ searchLength, setSearchResults }) => {
           }
         );
         setSearchResults(data);
+        e.target.value=""
       } catch (error) {
         console.log(error.response.data.error.message);
       }
@@ -47,7 +48,7 @@ const Search = ({ searchLength, setSearchResults }) => {
               className="input"
               placeholder="Search or start a new chat"
               onFocus={() => setShow(true)}
-              onBlur={() => searchLength == 0 && setShow(false)}
+              onBlur={() => searchLength === 0 && setShow(false)}
               onKeyDown={(e) => handleSearch(e)}
             />
           </div>

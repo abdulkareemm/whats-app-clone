@@ -3,13 +3,16 @@ import { useSelector } from "react-redux";
 import SingleConversation from "./SingleConversation";
 
 const Conversation = () => {
-  const { conversation } = useSelector((state) => state.chat);
+  const { conversation, activeConversation } = useSelector(
+    (state) => state.chat
+  );
   return (
     <div className="convos scrollbar">
       <ul>
         {conversation &&
-          conversation.map((convo, id) => {
-            if (convo.latestMessage?.message.length > 0)
+          conversation
+            .filter((c) => c.latestMessage && c._ic !== activeConversation._id)
+            .map((convo, id) => {
               return (
                 <SingleConversation
                   convo={convo}
@@ -17,7 +20,7 @@ const Conversation = () => {
                   lastItem={id + 1 === conversation.length ? true : false}
                 />
               );
-          })}
+            })}
       </ul>
     </div>
   );
