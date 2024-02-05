@@ -19,7 +19,7 @@ const Chat = () => {
     }
   }, [activeConversation]);
   return (
-    <div className="relative w-full h-full border-l dark:border-l-dark_border_2 select-none overflow-hidden">
+    <div className="relative w-full h-full border-l dark:border-l-dark_border_2 select-none">
       {/* Container */}
       <div>
         {/* Header */}
