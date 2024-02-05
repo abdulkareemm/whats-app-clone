@@ -9,6 +9,9 @@ const Chat = () => {
   const [message, setMessage] = useState("");
   const { user } = useSelector((state) => state.user);
   const { activeConversation ,status } = useSelector((state) => state.chat);
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false)
+  const [showAttachments, setShowAttachments] = useState(false);
+
   const { token } = user;
   const textRef = useRef()
   const dispatch = useDispatch();
@@ -32,8 +35,11 @@ const Chat = () => {
             textRef={textRef}
             message={message}
             setMessage={setMessage}
+            showEmojiPicker={showEmojiPicker}
+            setShowEmojiPicker={setShowEmojiPicker}
+            setShowAttachments={setShowAttachments}
           />
-          <Attachments />
+          <Attachments setShowAttachments={setShowAttachments} showAttachments={showAttachments} setShowEmojiPicker={setShowEmojiPicker} />
         </ul>
         {/**Input */}
         <Input message={message} setMessage={setMessage} textRef={textRef} />
