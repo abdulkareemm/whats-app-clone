@@ -14,6 +14,7 @@ const SingleConversation = ({ convo, lastItem }) => {
     receiver_id: getRecevierId(user._id, convo.users),
     token:user.token,
   };
+  console.log(convo.latestMessage?.message);
   const dispatch = useDispatch();
   return (
     <li
@@ -49,8 +50,8 @@ const SingleConversation = ({ convo, lastItem }) => {
               <div className="flex items-center gap-x-1 dark:text-dark_text_2">
                 <div className="flex-1 items-center gap-x-1 dark:text-dark_text_2">
                   <p>
-                    {convo.latestMessage?.message > 20
-                      ? `${convo.latestMessage.message.substring(0, 20)}...`
+                    {convo.latestMessage?.message.length > 30
+                      ? `${convo.latestMessage.message.substring(0, 40)}...`
                       : convo.latestMessage?.message}
                   </p>
                 </div>

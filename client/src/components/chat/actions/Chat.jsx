@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Attachments, EmojiPicker, Input } from ".";
 import { SendIcon } from "../../../svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +10,7 @@ const Chat = () => {
   const { user } = useSelector((state) => state.user);
   const { activeConversation ,status } = useSelector((state) => state.chat);
   const { token } = user;
+  const textRef = useRef()
   const dispatch = useDispatch();
   const values = { token, convo_id: activeConversation._id, message };
   const onSendHandler = async (e) => {
@@ -27,11 +28,15 @@ const Chat = () => {
       <div className="w-full flex items-center gap-x-2 ">
         {/**Emojis and attachments  */}
         <ul className="flex gap-x-2">
-          <EmojiPicker />
+          <EmojiPicker
+            textRef={textRef}
+            message={message}
+            setMessage={setMessage}
+          />
           <Attachments />
         </ul>
         {/**Input */}
-        <Input message={message} setMessage={setMessage} />
+        <Input message={message} setMessage={setMessage} textRef={textRef} />
         {/**Send button */}
         {status === "loading" ? (
           <div className="btn">

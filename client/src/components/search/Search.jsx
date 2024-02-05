@@ -19,8 +19,11 @@ const Search = ({ searchLength, setSearchResults }) => {
         );
         setSearchResults(data);
         e.target.value=""
+        setShow(false)
       } catch (error) {
         console.log(error.response.data.error.message);
+        setShow(false);
+
       }
     } else {
       setSearchResults([]);

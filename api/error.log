@@ -2,3 +2,19 @@
 {"level":"error","service":"user-service"}
 {"level":"error","service":"user-service"}
 {"connectionGeneration":0,"level":"error","service":"user-service"}
+{"level":"error","message":"connect ETIMEDOUT 52.6.145.139:27017","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":30,"maxElectionId":null,"maxSetVersion":null,"servers":{},"setName":"atlas-d9wn5r-shard-0","stale":false,"type":"ReplicaSetNoPrimary"},"service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","message":"Please provider a conversation id and a message body.","service":"user-service"}
+{"level":"error","message":"Please provider a conversation id and a message body.","service":"user-service"}
+{"level":"error","message":"Please provider a conversation id and a message body.","service":"user-service"}
+{"level":"error","message":"Please provider a conversation id and a message body.","service":"user-service"}
+{"level":"error","message":"Please provider a conversation id and a message body.","service":"user-service"}
+{"level":"error","message":"Please provider a conversation id and a message body.","service":"user-service"}
+{"level":"error","message":"Please provider a conversation id and a message body.","service":"user-service"}
+{"level":"error","message":"Please provider a conversation id and a message body.","service":"user-service"}
+{"level":"error","message":"Please provider a conversation id and a message body.","service":"user-service"}
+{"level":"error","message":"Please provider a conversation id and a message body.","service":"user-service"}
+{"level":"error","message":"Please provider a conversation id and a message body.","service":"user-service"}
+{"level":"error","message":"Please provider a conversation id and a message body.","service":"user-service"}
+{"level":"error","message":"Please provider a conversation id and a message body.","service":"user-service"}
+{"level":"error","message":"Please provider a conversation id and a message body.","service":"user-service"}

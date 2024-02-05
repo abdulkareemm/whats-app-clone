@@ -71,7 +71,7 @@
 /*--- Emoji Picker ---*/
 
 .epr-dark-theme{
-  background: #202c33;
+  background: #202c33 !important;
   border-radius: 0 !important;
   border: none !important;
 }
