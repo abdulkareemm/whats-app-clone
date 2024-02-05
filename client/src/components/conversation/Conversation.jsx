@@ -6,13 +6,14 @@ const Conversation = () => {
   const { conversation, activeConversation } = useSelector(
     (state) => state.chat
   );
-  console.log(conversation)
   return (
     <div className="convos scrollbar">
       <ul>
         {conversation &&
           conversation
-            .filter((c) => c.latestMessage )
+            .filter(
+              (c) =>
+                c.latestMessage && c._id !== activeConversation._id)
             .map((convo, id) => {
               return (
                 <SingleConversation

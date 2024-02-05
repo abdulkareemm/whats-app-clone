@@ -1,7 +1,9 @@
 import React from "react";
 import Contact from "./Contact";
+import { useSelector } from "react-redux";
 
 const SearchResult = ({ searchResult, setSearchResults }) => {
+  const {user} = useSelector(state=>state.user)
   return (
     <div className="w-full convos scrollbar ">
       <div className="flex flex-col px-8 pt-8">
@@ -12,7 +14,9 @@ const SearchResult = ({ searchResult, setSearchResults }) => {
       {/* Results */}
       <ul>
         {searchResult &&
-          searchResult.map((contact, id) => (
+          searchResult
+          .filter(c=>c._id!==user._id)
+          .map((contact, id) => (
             <Contact
               contact={contact}
               key={contact._id}
