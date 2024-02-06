@@ -1,5 +1,9 @@
 import app from "./src/apps/index.js";
 import  logger from"./src/configs/logger.js";
+import {Server} from "socket.io"
+
+
+
 
 
 
@@ -10,6 +14,16 @@ let server = app.listen(process.env.PORT,()=>{
     logger.info("server is listening on port " + process.env.PORT)
 })
 
+/// io initialize options
+const io = new Server(server, {
+  pingTimeout: 60000,
+  cors: {
+    origin: process.env.CLIENT_ENDPOINT,
+  },
+});
+io.on("connection",(socket)=>{
+    logger.info("socket connected")
+})
 ///  handle server errors
 const exitHandler = ()=>{
     if(server){
