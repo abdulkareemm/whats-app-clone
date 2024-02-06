@@ -2,12 +2,14 @@ import React, { useEffect } from "react";
 import { Chat, Sidebar, WhatsappHome } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { getConversations } from "../features/chatSlice";
+import SocketContext from "../context/SocketContext";
 
-const Home = () => {
+function Home  ({socket}) {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { activeConversation } = useSelector((state) => state.chat);
   // getConversation
+  console.log(socket)
   useEffect(() => {
     if (user?.token) {
       dispatch(getConversations(user.token));
@@ -25,5 +27,10 @@ const Home = () => {
     </div>
   );
 };
+const HomeWithSocket = (props)=>{
+  return <SocketContext.Consumer>
+    {(socket)=><Home {...props} socket={socket}/>}
+  </SocketContext.Consumer>
+}
 
-export default Home;
+export default HomeWithSocket;
