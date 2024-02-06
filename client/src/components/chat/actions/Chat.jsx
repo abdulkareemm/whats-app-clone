@@ -20,6 +20,8 @@ const Chat = () => {
     e.preventDefault();
     await dispatch(sendMessage(values));
     setMessage("");
+    setShowAttachments(false)
+    setShowEmojiPicker(false)
   };
 
   return (

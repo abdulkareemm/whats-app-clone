@@ -7,19 +7,29 @@ import {
   getRecevierId,
 } from "../../utils/help";
 import { open_create_conversation } from "../../features/chatSlice";
+import SocketContext from "../../context/SocketContext";
 
-const SingleConversation = ({ convo, lastItem }) => {
+export function SingleConversation({ convo, lastItem, socket }) {
   const { user } = useSelector((state) => state.user);
+  const {activeConversation} = useSelector(state=>state.chat)
   const values = {
     receiver_id: getRecevierId(user._id, convo.users),
-    token:user.token,
+    token: user.token,
   };
-  console.log(convo.latestMessage?.message);
   const dispatch = useDispatch();
+  const openConversation = async() => {
+    let newConvo = await dispatch(open_create_conversation(values));
+
+    socket.emit("join conversation", newConvo.payload._id);
+  };
   return (
     <li
-      className="list-none h-[72px] w-full dark:bg-dark_1 hover:dark:bg-dark_2 cursor-pointer dark:text-dark_text_1 px-[10px]"
-      onClick={() => dispatch(open_create_conversation(values))}
+      className={`list-none h-[72px] w-full dark:bg-dark_1 hover:${
+        convo._id !== activeConversation._id ? "dark:bg-dark_bg_2" : ""
+      } cursor-pointer dark:text-dark_text_1 px-[10px] ${
+        convo._id === activeConversation._id ? "dark:bg-dark_hover_1" : ""
+      }`}
+      onClick={() => openConversation()}
     >
       {/* Container */}
       <div className="relative w-full flex items-center justify-between py-[10px]">
@@ -72,6 +82,12 @@ const SingleConversation = ({ convo, lastItem }) => {
       )}
     </li>
   );
-};
+}
 
-export default SingleConversation;
+const ConversationWithSocket = (props) => (
+  <SocketContext.Consumer>
+    {(socket) => <SingleConversation {...props} socket={socket} />}
+  </SocketContext.Consumer>
+);
+
+export default ConversationWithSocket;

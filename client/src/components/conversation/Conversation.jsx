@@ -13,7 +13,7 @@ const Conversation = () => {
           conversation
             .filter(
               (c) =>
-                c.latestMessage && c._id !== activeConversation._id)
+                c.latestMessage)
             .map((convo, id) => {
               return (
                 <SingleConversation

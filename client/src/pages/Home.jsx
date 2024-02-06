@@ -8,8 +8,11 @@ function Home  ({socket}) {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { activeConversation } = useSelector((state) => state.chat);
+  useEffect(()=>{
+    socket.emit("join",user)
+  },[user])
   // getConversation
-  console.log(socket)
+  
   useEffect(() => {
     if (user?.token) {
       dispatch(getConversations(user.token));

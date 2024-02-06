@@ -1,11 +1,7 @@
-import app from "./src/apps/index.js";
-import  logger from"./src/configs/logger.js";
+import app from "./apps/index.js";
+import  logger from"./configs/logger.js";
 import {Server} from "socket.io"
-
-
-
-
-
+import SocketServer from "./SocketServer.js"
 
 
 
@@ -23,6 +19,7 @@ const io = new Server(server, {
 });
 io.on("connection",(socket)=>{
     logger.info("socket connected")
+    SocketServer(socket)
 })
 ///  handle server errors
 const exitHandler = ()=>{
