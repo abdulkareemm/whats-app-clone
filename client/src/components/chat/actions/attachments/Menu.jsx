@@ -1,5 +1,6 @@
 import React from 'react'
-import { CameraIcon, ContactIcon, DocumentIcon, PhotoIcon, PollIcon, StickerIcon } from '../../../../svg'
+import { CameraIcon, ContactIcon, DocumentIcon, PollIcon, StickerIcon } from '../../../../svg'
+import { PhotoAttachment } from '.';
 
 const Menu = () => {
   return (
@@ -29,11 +30,7 @@ const Menu = () => {
           <StickerIcon />
         </button>
       </li>
-      <li>
-        <button className="bg-[#BF59CF] rounded-full" type="button">
-          <PhotoIcon />
-        </button>
-      </li>
+      <PhotoAttachment/>
     </ul>
   );
 }

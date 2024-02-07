@@ -110,10 +110,10 @@ export const chatSlice = createSlice({
     setActiveConversation: (state, actions) => {
       state.activeConversation = actions.payload;
     },
-    updateMessages : (state,actions)=>{
-      let oldMessages = [...state.messages]
+    updateMessages: (state, actions) => {
+      let oldMessages = [...state.messages];
       oldMessages.push(actions.payload);
-      state.messages = oldMessages
+      state.messages = oldMessages;
       let conversation = {
         ...actions.payload.conversation,
         latestMessage: actions.payload,
@@ -123,7 +123,10 @@ export const chatSlice = createSlice({
       );
       newConversation.unshift(conversation);
       state.conversation = newConversation;
-    }
+    },
+    addFiles: (state, actions) => {
+      state.fiels = [...state.files, actions.payload];
+    },
   },
   extraReducers(builder) {
     builder
@@ -170,9 +173,11 @@ export const chatSlice = createSlice({
           ...actions.payload.conversation,
           latestMessage: actions.payload,
         };
-        let newConversation = [...state.conversation].filter(c=>c._id!==conversation._id);
-        newConversation.unshift(conversation)
-        state.conversation = newConversation
+        let newConversation = [...state.conversation].filter(
+          (c) => c._id !== conversation._id
+        );
+        newConversation.unshift(conversation);
+        state.conversation = newConversation;
       })
       .addCase(sendMessage.rejected, (state, actions) => {
         state.status = "failed";
@@ -180,5 +185,5 @@ export const chatSlice = createSlice({
       });
   },
 });
-export const { setActiveConversation, updateMessages } = chatSlice.actions;
+export const { setActiveConversation, updateMessages, addFiles } = chatSlice.actions;
 export default chatSlice;
