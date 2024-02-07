@@ -19,7 +19,7 @@ const io = new Server(server, {
 });
 io.on("connection",(socket)=>{
     logger.info("socket connected")
-    SocketServer(socket)
+    SocketServer(socket,io)
 })
 ///  handle server errors
 const exitHandler = ()=>{
