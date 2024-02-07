@@ -1,16 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Chat, Sidebar, WhatsappHome } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { getConversations, updateMessages } from "../features/chatSlice";
 import SocketContext from "../context/SocketContext";
+import { getRecevierId } from "../utils/help";
 
 function Home  ({socket}) {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { activeConversation } = useSelector((state) => state.chat);
+  const [onlineUsers,setOnlineUsers] = useState([])
   // join user to socket
   useEffect(()=>{
     socket.emit("join",user)
+    // get online users
+    socket.on("get-online-users",users=>{
+      setOnlineUsers(users)
+    })
   },[user])
   // getConversation
   
@@ -33,9 +39,13 @@ function Home  ({socket}) {
       {/* container */}
       <div className="container h-screen flex py-[19px]">
         {/* sidebar */}
-        <Sidebar />
+        <Sidebar onlineUsers={onlineUsers} />
         {/* chat */}
-        {Object.keys(activeConversation).length!==0 ? <Chat/> : <WhatsappHome />}
+        {Object.keys(activeConversation).length !== 0 ? (
+          <Chat online = {onlineUsers.find(u=>u.userId===getRecevierId(user._id,activeConversation.users))}/>
+        ) : (
+          <WhatsappHome />
+        )}
       </div>
     </div>
   );

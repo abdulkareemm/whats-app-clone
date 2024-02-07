@@ -7,7 +7,7 @@ import {
 } from "../../utils/help";
 import { DotsIcon, SearchIcon } from "../../svg";
 
-const Header = () => {
+const Header = ({online}) => {
   const { activeConversation } = useSelector((state) => state.chat);
   const { user } = useSelector((state) => state.user);
 
@@ -33,7 +33,9 @@ const Header = () => {
                 )[0]
               )}
             </h1>
-            <span className="text-ts dark:text-dark_svg_2">online</span>
+            {online && (
+              <span className="text-ts dark:text-dark_svg_2">online</span>
+            )}
           </div>
         </div>
         {/* right */}

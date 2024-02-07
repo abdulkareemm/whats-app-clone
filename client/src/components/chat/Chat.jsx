@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getConversationMessage } from "../../features/chatSlice";
 import { ChatActions } from "./actions";
 
-const Chat = () => {
+const Chat = ({online}) => {
   const { activeConversation } = useSelector((state) => state.chat);
   const { user } = useSelector((state) => state.user);
   const values = {
@@ -23,7 +23,7 @@ const Chat = () => {
       {/* Container */}
       <div>
         {/* Header */}
-        <Header />
+        <Header online={online}/>
         {/* Messages */}
         <Message />
         {/**Chat actions */}

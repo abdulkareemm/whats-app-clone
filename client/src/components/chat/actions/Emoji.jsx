@@ -13,7 +13,7 @@ const Emoji = ({
   const [cursorPosition, setCursorPosition] = useState("");
   useEffect(() => {
     return () => {
-      textRef.current.selectionEnd = cursorPosition;
+      if (cursorPosition) textRef.current.selectionEnd = cursorPosition;
     };
   }, [cursorPosition]);
 
