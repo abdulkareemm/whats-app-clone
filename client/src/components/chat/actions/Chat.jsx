@@ -3,25 +3,27 @@ import { Attachments, EmojiPicker, Input } from ".";
 import { SendIcon } from "../../../svg";
 import { useDispatch, useSelector } from "react-redux";
 import { sendMessage } from "../../../features/chatSlice";
-import {ClipLoader} from "react-spinners"
+import { ClipLoader } from "react-spinners";
+import SocketContext from "../../../context/SocketContext";
 
-const Chat = () => {
+export function Chat({ socket }) {
   const [message, setMessage] = useState("");
   const { user } = useSelector((state) => state.user);
-  const { activeConversation ,status } = useSelector((state) => state.chat);
-  const [showEmojiPicker, setShowEmojiPicker] = useState(false)
+  const { activeConversation, status } = useSelector((state) => state.chat);
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [showAttachments, setShowAttachments] = useState(false);
 
   const { token } = user;
-  const textRef = useRef()
+  const textRef = useRef();
   const dispatch = useDispatch();
   const values = { token, convo_id: activeConversation._id, message };
   const onSendHandler = async (e) => {
     e.preventDefault();
-    await dispatch(sendMessage(values));
+    let newMessage = await dispatch(sendMessage(values));
+    socket.emit("send message",newMessage.payload);
     setMessage("");
-    setShowAttachments(false)
-    setShowEmojiPicker(false)
+    setShowAttachments(false);
+    setShowEmojiPicker(false);
   };
 
   return (
@@ -41,7 +43,11 @@ const Chat = () => {
             setShowEmojiPicker={setShowEmojiPicker}
             setShowAttachments={setShowAttachments}
           />
-          <Attachments setShowAttachments={setShowAttachments} showAttachments={showAttachments} setShowEmojiPicker={setShowEmojiPicker} />
+          <Attachments
+            setShowAttachments={setShowAttachments}
+            showAttachments={showAttachments}
+            setShowEmojiPicker={setShowEmojiPicker}
+          />
         </ul>
         {/**Input */}
         <Input message={message} setMessage={setMessage} textRef={textRef} />
@@ -58,6 +64,13 @@ const Chat = () => {
       </div>
     </form>
   );
-};
+}
 
-export default Chat;
+const ChatActions = (props) => (
+  <SocketContext.Consumer>
+    {(socket) => <Chat {...props} socket={socket} />}
+  </SocketContext.Consumer>
+)
+
+
+export default ChatActions;
