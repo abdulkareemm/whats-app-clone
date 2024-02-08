@@ -1,33 +1,33 @@
 import React, { useRef } from "react";
-import { PhotoIcon } from "../../../../svg";
+import { DocumentIcon } from "../../../../svg";
 import { useDispatch } from "react-redux";
 import { addFiles } from "../../../../features/chatSlice";
 
-const Photo = () => {
+const Document = () => {
   const inputRef = useRef(null);
   const dispatch = useDispatch();
-  const imageHandler = (e) => {
+  const documentHandler = (e) => {
     let files = Array.from(e.target.files);
-    files.forEach((file) => {
+    files.forEach((img) => {
       if (
-        file.type !== "image/png" &&
-        file.type !== "image/jpeg" &&
-        file.type !== "image/gif" &&
-        file.type !== "image/webp"
+        img.type !== "image/png" &&
+        img.type !== "image/jpeg" &&
+        img.type !== "image/gif" &&
+        img.type !== "image/webp"
       ) {
         // remove file not image
-        files = files.filter((item) => item.name !== file.name);
+        files = files.filter((item) => item.name !== img.name);
         return;
-      } else if (file.size > 1024 * 1024 * 5) {
+      } else if (img.size > 1024 * 1024 * 5) {
         // remove image with size bigger than 5 megabyte
-        files = files.filter((item) => item.name !== file.name);
+        files = files.filter((item) => item.name !== img.name);
         return;
       } else {
         const reader = new FileReader();
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(img);
         reader.onload = (e) => {
           dispatch(
-            addFiles({ file: file, imgData: e.target.result, type: file.split("/")[0] })
+            addFiles({ file: img, imgData: e.target.result, type: "image" })
           );
         };
       }
@@ -36,21 +36,21 @@ const Photo = () => {
   return (
     <li>
       <button
-        className="bg-[#BF59CF] rounded-full"
+        className="bg-[#5F66CD] rounded-full"
         type="button"
         onClick={() => inputRef.current.click()}
       >
-        <PhotoIcon />
+        <DocumentIcon />
         <input
           type="file"
           hidden
           ref={inputRef}
           accept="image/png,image/jpeg,image/gif,image/webp"
-          onChange={imageHandler}
+          onChange={documentHandler}
         />
       </button>
     </li>
   );
 };
 
-export default Photo;
+export default Document;
