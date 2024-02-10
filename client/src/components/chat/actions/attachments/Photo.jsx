@@ -13,7 +13,10 @@ const Photo = () => {
         file.type !== "image/png" &&
         file.type !== "image/jpeg" &&
         file.type !== "image/gif" &&
-        file.type !== "image/webp"
+        file.type !== "image/webp" &&
+        file.type !== "video/mp4" &&
+        file.type !== "video/mpeg" &&
+        file.type !== "video/webm"
       ) {
         // remove file not image
         files = files.filter((item) => item.name !== file.name);
@@ -27,7 +30,11 @@ const Photo = () => {
         reader.readAsDataURL(file);
         reader.onload = (e) => {
           dispatch(
-            addFiles({ file: file, imgData: e.target.result, type: file.split("/")[0] })
+            addFiles({
+              file: file,
+              fileData: e.target.result,
+              type: file.type.split("/")[0],
+            })
           );
         };
       }

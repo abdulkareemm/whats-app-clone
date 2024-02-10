@@ -8,27 +8,25 @@ const Document = () => {
   const dispatch = useDispatch();
   const documentHandler = (e) => {
     let files = Array.from(e.target.files);
-    files.forEach((img) => {
+    files.forEach((file) => {
       if (
-        img.type !== "image/png" &&
-        img.type !== "image/jpeg" &&
-        img.type !== "image/gif" &&
-        img.type !== "image/webp"
+        file.type !== "application/pdf" &&
+        file.type !== "text/plan" &&
+        file.type !== "application/msword" &&
+        file.type !== "application/zip"
       ) {
         // remove file not image
-        files = files.filter((item) => item.name !== img.name);
+        files = files.filter((item) => item.name !== file.name);
         return;
-      } else if (img.size > 1024 * 1024 * 5) {
+      } else if (file.size > 1024 * 1024 * 5) {
         // remove image with size bigger than 5 megabyte
-        files = files.filter((item) => item.name !== img.name);
+        files = files.filter((item) => item.name !== file.name);
         return;
       } else {
         const reader = new FileReader();
-        reader.readAsDataURL(img);
+        reader.readAsDataURL(file);
         reader.onload = (e) => {
-          dispatch(
-            addFiles({ file: img, imgData: e.target.result, type: "image" })
-          );
+          dispatch(addFiles({ file: file, type: file.type.split("/")[1] }));
         };
       }
     });
@@ -45,7 +43,7 @@ const Document = () => {
           type="file"
           hidden
           ref={inputRef}
-          accept="image/png,image/jpeg,image/gif,image/webp"
+          accept="application/pdf"
           onChange={documentHandler}
         />
       </button>
